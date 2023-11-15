@@ -13,9 +13,11 @@ class EnderecoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        Endereco::all()->where('user_id', $request->user()->id);
+        return view('profile.partials.endereco');
+
     }
 
     /**

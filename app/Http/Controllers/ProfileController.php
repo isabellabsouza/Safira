@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Endereco;
 
 class ProfileController extends Controller
 {
@@ -18,6 +19,7 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => $request->user(),
+            'enderecos' => $request->user()->enderecos,
         ]);
     }
 
@@ -56,5 +58,14 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function enderecos(Request $request): View
+    {
+        $enderecos = Endereco::all()->where('user_id', $request->user()->id);
+        //return view('profile.partials.enderecos')->with('enderecos', $enderecos);
+        return view('profile.partials.enderecos', [
+            'user' => $request->user(),
+        ])->with('enderecos', $enderecos);
     }
 }
