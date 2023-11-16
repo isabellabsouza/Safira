@@ -16,4 +16,9 @@ class Produto extends Model
         'imagem',
         'categoria'
     ];
+
+    public function estoque()
+    {
+        return $this->hasMany(Estoque::class);
+    }
 }
