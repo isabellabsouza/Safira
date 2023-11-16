@@ -24,15 +24,9 @@
     <title>{{$title}}</title>
 </head>
 <body>
-    
-    <x-navbar />
-    
-    <x-carousel />
 
-    <x-cards-categorias />
 
     {{ $slot }}
 
-    <x-footer />
 </body>
 </html>
