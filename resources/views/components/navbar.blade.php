@@ -102,21 +102,21 @@
 
                     @auth
                         <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            <a class="nav-link active dropdown-toggle bg-black" type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-end bg-dark rounded-0">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a>
+                                    <a class="dropdown-item text-bg-dark" href="{{ route('profile.edit') }}">Perfil</a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider" />
+                                    <hr class="dropdown-divider bg-white" />
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item text-bg-dark" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                             {{ __('Log Out') }}

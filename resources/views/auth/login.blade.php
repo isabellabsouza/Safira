@@ -60,14 +60,16 @@
 
     <div class="container">
 
-        <form method="POST" action="{{ route('login') }}">
+        <form class="" method="POST" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+            <div class="row">
+                <x-input-label class="" for="email" :value="__('Email')" />
+                <div class="col-10">
+                <x-text-input id="email" class="" type="email" name="email" :value="old('email')"
                     required autofocus autocomplete="username" />
+                </div>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
