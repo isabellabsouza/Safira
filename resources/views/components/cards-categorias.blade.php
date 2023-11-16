@@ -91,7 +91,7 @@
 
 </div>
 
-<h2 class=" container text-center my-3 my-xl-5">Produtos que estão bombando</h2>
+{{-- <h2 class=" container text-center my-3 my-xl-5">Produtos que estão bombando</h2>
 <div class="container row mx-auto g-4">
 
     <div class="col-12 col-md-6 col-xxl-4">
@@ -213,7 +213,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+
 
 <section class="pb-4 bg-black text-bg-dark mt-4">
     <h2 class="text-center">Conheça todas as nossas facilidades</h2>
