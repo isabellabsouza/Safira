@@ -41,5 +41,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/endereco', [EnderecoController::class, 'create'])->name('endereco.create');
 Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
 
-
+Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('produto.show');
 

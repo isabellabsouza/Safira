@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
+use App\Models\ImagemProduto;
 
 class ProdutoController extends Controller
 {
@@ -32,16 +33,31 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request);
+        
+        $produto = $this->repository->create($request);
+        
+        foreach ($request->file('imagens') as $imagem) {
+
+            $imagemProduto = new ImagemProduto();
+            
+            $imagemProduto->produto_id = $produto->id;
+            $imagemProduto->caminho = $imagem->store('imagens_produtos/'.$produto->id, 'public');
+            $imagemProduto->save();
+            unset($imagemProduto);
+        }
+
         return to_route('home');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Produto $produto)
+    public function show($id)
     {
-        //
+        
+        $produto = Produto::find($id);
+        //dd($produto->imagemProduto);
+        return view('produtos-show')->with('produto', $produto);
     }
 
     /**

@@ -1,7 +1,7 @@
 <x-padrao title="Novo Produto">
     <x-navbar />
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <x-input-label for="nome" :value="__('Nome')" />
@@ -20,8 +20,8 @@
             <x-text-input id="categoria" type="text" name="categoria" :value="old('categoria')"  autofocus />
         </div>
         <div>
-            <x-input-label for="imagem" :value="__('Imagem')" />
-            <x-text-input id="imagem" type="text" name="imagem" :value="old('imagem')"  autofocus />
+            <x-input-label for="imagens" :value="__('Imagens')" />
+            <x-text-input id="imagens" type="file" name="imagens[]" accept="image/gif, image/jpeg, image/png" multiple autofocus />
             
         </div>
 

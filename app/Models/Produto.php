@@ -13,12 +13,16 @@ class Produto extends Model
         'nome',
         'descricao',
         'preco',
-        'imagem',
         'categoria'
     ];
 
     public function estoque()
     {
         return $this->hasMany(Estoque::class);
+    }
+
+    public function imagemProduto()
+    {
+        return $this->hasMany(ImagemProduto::class);
     }
 }
