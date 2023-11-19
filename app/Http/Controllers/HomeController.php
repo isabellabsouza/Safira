@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::all();
+        //$produtos = Produto::all();
+        $produtos = Produto::with('imagemProduto')->get();
         return view('index')->with('produtos', $produtos);
     }    
 }
