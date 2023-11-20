@@ -23,6 +23,12 @@
                 <button class="btn btn-outline-light rounded-0" type="submit">Buscar</button>
             </form>
 
+            <ul class="navbar-nav ms-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('carrinho.index') }}"><i class="bi bi-bag-fill fs-4"></i></a>
+                </li>
+            </ul>
+
             <ul class="navbar-nav justify-content ms-3">
 
                 @if (Route::has('login'))

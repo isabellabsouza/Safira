@@ -2,8 +2,8 @@
     <div class="card">
         @if ($produto->imagemProduto->isNotEmpty())
         <img class="card-img-top" 
-            width="100%" 
-            height="180" 
+            width="100" 
+            height="50%" 
             src="{{ asset('storage/' . $produto->imagemProduto->first()->caminho) }}"
             alt="">
         @else

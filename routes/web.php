@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnderecoController;
@@ -32,6 +34,15 @@ Route::middleware('auth')->group(function () {
     //Route::get('/profile', [ProfileController::class, 'enderecos'])->name('profile.enderecos');
     Route::get('/produto', [ProdutoController::class, 'create'])->name('produto.create');
     Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store');
+    Route::get('/carrinho', [PedidoController::class, 'index'])->name('carrinho.index');
+    Route::post('/carrinho', [PedidoController::class, 'store'])->name('carrinho.store');
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    
+    Route::get('/teste', function () {
+        echo 'teste';
+    });
 });
 
 require __DIR__.'/auth.php';
