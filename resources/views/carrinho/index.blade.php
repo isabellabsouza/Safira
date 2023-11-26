@@ -17,14 +17,25 @@
             <tbody>
                 @foreach($itens as $item)
                     <tr>
-                        <td>{{ $item->produto_id }}</td>
-                        <td>{{}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->produto->nome }}</td>
+                        <td>{{ $item->produto->preco }}</td>
+                        <td>{{ $item->quantidade }}</td>
+                        <td>{{ $item->total }}</td>
+                        <td>
+                            <form action="{{ route('carrinho.destroy', $item->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Remover</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        TOTAL: R$ {{ $total }}
+
+        <button class="btn btn-primary">Finalizar Compra</button>
     </div>
     <x-footer />
 </x-padrao>

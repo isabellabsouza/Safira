@@ -1,4 +1,4 @@
-<x-padrao title="Produto xxx">
+<x-padrao title="{{ $produto->nome }}">
     <x-navbar />
 
     <div class="container row">
@@ -39,12 +39,9 @@
             <p>{{ $produto->preco }}</p>
             <form action="{{ route('carrinho.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" value="{{ $produto->id }}">
-                <input type="hidden" name="name" value="{{ $produto->nome }}">
-                <input type="hidden" name="price" value="{{ $produto->preco }}">
-                <input type="hidden" name="price" value="{{ $produto->preco }}">
+                <input type="hidden" name="produto_id" value="{{ $produto->id }}">
                 <input type="hidden" name="quantidade" value="1">
-                <button class="btn btn-primary">Adicionar ao Carrinho</button>
+                <button class="btn btn-primary" type="submit">Adicionar ao Carrinho</button>
             </form>
         </div>
     </div>

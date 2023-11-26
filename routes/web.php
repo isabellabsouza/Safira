@@ -34,8 +34,10 @@ Route::middleware('auth')->group(function () {
     //Route::get('/profile', [ProfileController::class, 'enderecos'])->name('profile.enderecos');
     Route::get('/produto', [ProdutoController::class, 'create'])->name('produto.create');
     Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store');
-    Route::get('/carrinho', [PedidoController::class, 'index'])->name('carrinho.index');
-    Route::post('/carrinho', [PedidoController::class, 'store'])->name('carrinho.store');
+
+    Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+    Route::post('/carrinho', [CarrinhoController::class, 'store'])->name('carrinho.store');
+    Route::delete('/carrinho/excluir/{id}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
