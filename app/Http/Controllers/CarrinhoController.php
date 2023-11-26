@@ -92,7 +92,34 @@ class CarrinhoController extends Controller
      */
     public function update(Request $request, Carrinho $carrinho)
     {
-        //
+        $request->validate([
+            'id' => 'required|exists:carrinhos,id',
+        ]);
+
+        $user = Auth::user();
+
+        $itemExistente = Carrinho::where('user_id', $user->id)
+            ->where('id', $request->id)
+            ->first();
+        
+        if(!$itemExistente){
+            return to_route('carrinho.index')->with('error', 'Item não existe!');
+        }
+
+        //Vou verificar se o botão apertado foi o btnPlus ou btnMinus
+        if ($request->input('action') == 'btnPlus') {
+            $itemExistente->increment('quantidade');
+        } else {
+            $itemExistente->decrement('quantidade');
+        }
+
+        //verificar se a quantidade é 0, se for, deletar o item
+        if ($itemExistente->quantidade == 0) {
+            $itemExistente->delete();
+        }
+
+
+        return to_route('carrinho.index')->with('success', 'Item atualizado com sucesso!');
     }
 
     /**
