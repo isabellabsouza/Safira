@@ -1,5 +1,8 @@
 <x-padrao title="Meu Carrinho">
     <x-nav-padrao />
+    @if(session('message'))
+        <x-toast :message="session('message')" :type="session('messageType')" />
+    @endif
     <div class="container-flow">
         <div class="row justify-content-center m-0">
             <div class="col col-8">
@@ -25,70 +28,67 @@
                             </thead>
                             <tbody class="text-center">
                                 @foreach ($itens as $item)
-                                    <tr>
-                                        <td class="align-middle">
-                                            @if ($item->produto->imagemProduto->isNotEmpty())
-                                                <a href="{{ route('produto.show', $item->produto->id) }}">
-                                                    <img height="125px;"
-                                                        src="{{ asset('storage/' . $item->produto->imagemProduto->first()->caminho) }}"
-                                                        alt="">
-                                                </a>
-                                            @else
-                                                <img height="125px;" src="{{ asset('img/sem-imagem.png') }}"
-                                                    alt="">
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col fs-5 text-uppercase fw-bold text-start">
-                                                        {{ $item->produto->nome }}
-                                                    </div>
-                                                    <div class="col text-end">
-                                                        <a href="{{ route('produto.show', $item->produto->id) }}">Ver
-                                                            produto</a>
-                                                    </div>
+                                <tr>
+                                    <td class="align-middle">
+                                        @if ($item->produto->imagemProduto->isNotEmpty())
+                                        <a href="{{ route('produto.show', $item->produto->id) }}">
+                                            <img height="125px;"
+                                                src="{{ asset('storage/' . $item->produto->imagemProduto->first()->caminho) }}"
+                                                alt="">
+                                        </a>
+                                        @else
+                                        <img height="125px;" src="{{ asset('img/sem-imagem.png') }}" alt="">
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col fs-5 text-uppercase fw-bold text-start">
+                                                    {{ $item->produto->nome }}
                                                 </div>
-                                                <div class="row">
-                                                    <hr class="m-0">
-                                                </div>
-                                                <div class="row text-start">
-                                                    <div class="col px-3">
-                                                        {{ $item->produto->descricao }}
-                                                    </div>
+                                                <div class="col text-end">
+                                                    <a href="{{ route('produto.show', $item->produto->id) }}">Ver
+                                                        produto</a>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>{{ $item->produto->preco }}</td>
-                                        {{-- <td>{{ $item->quantidade }}</td> --}}
-                                        <td>
-                                            <form method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" value="{{ $item->id }}" id="id"
-                                                    name="id">
-                                                <div class="btn-group" role="group">
-                                                    <button type="submit" name="action" value="btnMinus"
-                                                        class="btn btn-light btn-sm border w-25">&minus;</button>
-                                                    <input type="text"
-                                                        class="form-control form-control-sm bg-light w-50"
-                                                        inputmode="numeric" value="{{ $item->quantidade }}" readonly>
-                                                    <button type="submit" name="action" value="btnPlus"
-                                                        class="btn btn-light btn-sm border w-25">&plus;</button>
+                                            <div class="row">
+                                                <hr class="m-0">
+                                            </div>
+                                            <div class="row text-start">
+                                                <div class="col px-3">
+                                                    {{ $item->produto->descricao }}
                                                 </div>
-                                            </form>
-                                        </td>
-                                        <td>{{ number_format($item->total, 2, ',', '.') }}</td>
-                                        <td>
-                                            <form action="{{ route('carrinho.destroy', $item->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-link link-danger link-opacity-50-hover lh-1"><i
-                                                        class="bi bi-trash3 fs-5"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ $item->produto->preco }}</td>
+                                    {{-- <td>{{ $item->quantidade }}</td> --}}
+                                    <td>
+                                        <form method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" value="{{ $item->id }}" id="id" name="id">
+                                            <div class="btn-group" role="group">
+                                                <button type="submit" name="action" value="btnMinus"
+                                                    class="btn btn-light btn-sm border w-25">&minus;</button>
+                                                <input type="text" class="form-control form-control-sm bg-light w-50"
+                                                    inputmode="numeric" value="{{ $item->quantidade }}" readonly>
+                                                <button type="submit" name="action" value="btnPlus"
+                                                    class="btn btn-light btn-sm border w-25">&plus;</button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td>{{ number_format($item->total, 2, ',', '.') }}</td>
+                                    <td>
+                                        <form action="{{ route('carrinho.destroy', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="btn btn-sm btn-link link-danger link-opacity-50-hover lh-1"><i
+                                                    class="bi bi-trash3 fs-5"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

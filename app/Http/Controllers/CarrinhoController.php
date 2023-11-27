@@ -22,9 +22,8 @@ class CarrinhoController extends Controller
     
         $total = $itens->sum('total');
 
-        return view('carrinho.index', [
-            'itens' => $itens,]
-        )->with('total', $total);
+        return view('carrinho.index', ['itens' => $itens,])
+                ->with('total', $total);
     }
 
     /**
@@ -67,7 +66,9 @@ class CarrinhoController extends Controller
         }
 
         // Redirecione de volta à página de produtos ou para onde desejar
-        return to_route('carrinho.index')->with('success', 'Item adicionado ao carrinho com sucesso!');
+        return to_route('carrinho.index')
+            ->with('message', 'Item adicionado ao carrinho com sucesso!')
+            ->with('messageType', 'success');
     }
     
 
@@ -103,7 +104,9 @@ class CarrinhoController extends Controller
             ->first();
         
         if(!$itemExistente){
-            return to_route('carrinho.index')->with('error', 'Item não existe!');
+            return to_route('carrinho.index')
+                ->with('message', 'Item não existe!')
+                ->with('messageType', 'danger');
         }
 
         //Vou verificar se o botão apertado foi o btnPlus ou btnMinus
@@ -119,7 +122,9 @@ class CarrinhoController extends Controller
         }
 
 
-        return to_route('carrinho.index')->with('success', 'Item atualizado com sucesso!');
+        return to_route('carrinho.index')
+            ->with('message', 'Item atualizado com sucesso!')
+            ->with('messageType', 'success');
     }
 
     /**
@@ -131,6 +136,8 @@ class CarrinhoController extends Controller
         $carrinho = Carrinho::find($carrinho);
         $carrinho->delete();
 
-        return to_route('carrinho.index')->with('success', 'Item removido do carrinho!');
+        return to_route('carrinho.index')
+            ->with('message', 'Item removido do carrinho!')
+            ->with('messageType', 'success');
     }
 }
