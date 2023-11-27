@@ -41,7 +41,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end bg-dark rounded-0">
                                 <li>
-                                    <a class="dropdown-item text-bg-dark" href="{{ route('profile.edit') }}">Perfil</a>
+                                    <a class="dropdown-item text-bg-dark" href="{{ route('profile.pedidos') }}">Perfil</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider bg-white" />

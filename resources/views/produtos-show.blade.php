@@ -43,6 +43,14 @@
                 <input type="hidden" name="quantidade" value="1">
                 <button class="btn btn-primary" type="submit">Adicionar ao Carrinho</button>
             </form>
+            <div class="btn-group mt-3" role="group" aria-label="First group">
+                <button type="button" class="btn btn-outline-secondary">PP</button>
+                <button type="button" class="btn btn-outline-secondary">P</button>
+                <button type="button" class="btn btn-outline-secondary">M</button>
+                <button type="button" class="btn btn-outline-secondary">G</button>
+                <button type="button" class="btn btn-outline-secondary">GG</button>
+            </div>
+            
         </div>
     </div>
 

@@ -12,12 +12,16 @@ use App\Models\Endereco;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+    public function pedidos(Request $request)
+    {
+        return view('profile.pedidos', [
+            'user' => $request->user(),
+        ]);
+    }
+
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.pedidos', [
             'user' => $request->user(),
             'enderecos' => $request->user()->enderecos,
         ]);
@@ -64,7 +68,7 @@ class ProfileController extends Controller
     {
         $enderecos = Endereco::all()->where('user_id', $request->user()->id);
         //return view('profile.partials.enderecos')->with('enderecos', $enderecos);
-        return view('profile.partials.enderecos', [
+        return view('profile.enderecos', [
             'user' => $request->user(),
         ])->with('enderecos', $enderecos);
     }

@@ -2,64 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use App\Models\Pedido;
-use App\Models\Produto;
+use App\Models\Carrinho;
+use App\Models\ItemPedido;
 use Illuminate\Http\Request;
+use App\Models\Pedido;
 
 class PedidoController extends Controller
 {
-    /*
-    * Também referente à carrinho de compras, o pedido é o momento em que o usuário finaliza a compra.
-    */
     public function index()
     {
-        //$user_id = auth()->user()->id;
-        $pedido_id = Pedido::all()->where('user_id', auth()->user()->id)->last()->id;
-        $itens = Item::all()->where('pedido_id', $pedido_id);
-        
-        foreach ($itens as $item) {
-            $produto = Produto::find($item->produto_id);
-            $produtos[] = $produto;
-        }
-        
-        return view('carrinho.index')->with([
-            'itens' => $itens, 
-            'produtos' => $produtos
+        $pedidos = Pedido::all()->where('user_id', auth()->user()->id);
+        return view('profile.pedidos', [
+            'pedidos' => $pedidos,
+            'user' => auth()->user(),
         ]);
-
     }
-
-
-    public function create()
-    {
-        //
-    }
-
 
     public function store(Request $request)
     {
-        //
+        
+        $pedido = Pedido::create([
+            'user_id' => auth()->user()->id,
+            'valor_total' => $request->valor_total,
+            'numero' => '123456789',
+            'status' => 'Aguardando pagamento',
+        ]);
+
+        $itensCarrinho = Carrinho::where('user_id', auth()->user()->id)->with('produto')->get();
+
+        
+
+        foreach ($itensCarrinho as $item){
+            ItemPedido::create([
+                'pedido_id' => $pedido->id,
+                'produto_id' => $item->produto_id,
+                'quantidade' => $item->quantidade,
+            ]);
+        }
+
+        Carrinho::where('user_id', auth()->user()->id)->delete();
+        
+        return to_route('profile.pedidos');
     }
 
-
-    public function show(Pedido $pedido)
+    public function show($id)
     {
-        //
-    }
-
-    public function edit(Pedido $pedido)
-    {
-        //
-    }
-
-    public function update(Request $request, Pedido $pedido)
-    {
-        //
-    }
-
-    public function destroy(Pedido $pedido)
-    {
-        //
+        $pedido = Pedido::find($id);
+        return view('pedido-show')->with('pedido', $pedido);
     }
 }
