@@ -6,7 +6,8 @@
             <a href="{{ route('profile.pedidos') }}">Seus Pedidos</a>
             <a href="{{ route('profile.enderecos') }}">Endereços</a>
             <a href="">Formas de Pagamento</a>
-            <a href="">Informações da Conta</a>
+            <a href="{{ route('profile.info') }}">Informações da Conta</a>
+            
         </div>
         <div class="col-9">
             <div class="container">
