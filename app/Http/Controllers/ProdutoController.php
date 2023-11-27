@@ -86,8 +86,26 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produto $produto)
+    public function destroy($produto)
     {
-        //
+        $produto = Produto::find($produto);
+        $produto->delete();
+        
+        return to_route('dashboard.produtos');
+    }
+
+    public function status($id)
+    {
+        
+        $produto = Produto::find($id);
+        
+        if($produto->status == 'inativo'){
+            $produto->status = 'ativo';
+        }else{
+            $produto->status = 'inativo';
+        }
+        $produto->save();
+
+        return to_route('dashboard.produtos');
     }
 }

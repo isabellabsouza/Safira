@@ -40,9 +40,16 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end bg-dark rounded-0">
+                                @if(Auth::user()->role == 'user')
                                 <li>
                                     <a class="dropdown-item text-bg-dark" href="{{ route('profile.pedidos') }}">Perfil</a>
                                 </li>
+                                @endif
+                                @if(Auth::user()->role == 'admin')
+                                <li>
+                                    <a class="dropdown-item text-bg-dark" href="{{ route('dashboard.pedidos') }}">Painel de Controle</a>
+                                </li>
+                                @endif
                                 <li>
                                     <hr class="dropdown-divider bg-white" />
                                 </li>
