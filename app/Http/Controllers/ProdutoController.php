@@ -54,8 +54,17 @@ class ProdutoController extends Controller
     {
         
         $produto = Produto::find($id);
+        //por enquanto vou fazer produtos recomendados aleatorios
+        $produtosRecomendados = Produto::inRandomOrder()
+            ->where('id', '!=', $id)
+            ->limit(4)
+            ->get();
+
+            
         //dd($produto->imagemProduto);
-        return view('produtos-show')->with('produto', $produto);
+        return view('produtos-show')
+            ->with('produto', $produto)
+            ->with('produtosRecomendados', $produtosRecomendados);
     }
 
     /**

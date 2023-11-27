@@ -16,14 +16,16 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <!-- CSS stylesheet -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
+    <!-- JS script -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
     <!-- Shoelace CDN -->
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
     <!-- Shoelace JS CDN -->
-    {{-- <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js">
-    </script> --}}
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js">
+    </script>
 
 
     <title>{{ $title }}</title>

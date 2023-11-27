@@ -25,3 +25,19 @@
     }
 }
 
+/* Carrossel página de produto */
+.carousel-thumb{
+    /* opacity 50% */
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.carousel-thumb.active{
+    /* opacity 100% */
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.carousel-item img{
+    height: 450px;
+    object-fit: scale-down;
+}
