@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estoque;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\User;
@@ -27,8 +28,12 @@ class DashboardController extends Controller
 
     public function produtos()
     {
+        $produtos = Produto::with('estoque')->get();
+
         return view('dashboard.produtos')->with([
-            'produtos' => Produto::all(),
+            'produtos' => $produtos,
+
         ]);
+
     }
 }

@@ -1,5 +1,5 @@
 <x-padrao title="Painel de Controle">
-    <x-nav-padrao />
+    <x-nav-padrao/>
     <div class="container row">
         
         <div class="col-3 row">

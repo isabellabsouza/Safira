@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estoque;
 use App\Models\Produto;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
@@ -43,6 +44,17 @@ class ProdutoController extends Controller
             $imagemProduto->save();
             unset($imagemProduto);
         }
+
+        $tamanhos = ['P', 'PP', 'M', 'G', 'GG'];
+
+        foreach ($tamanhos as $tamanho) {
+            Estoque::create([
+                'produto_id' => $produto->id,
+                'tamanho' => $tamanho,
+                'quantidade' => 0,
+            ]);
+        }
+
 
         return to_route('home');
     }
