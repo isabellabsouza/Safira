@@ -41,3 +41,11 @@
     height: 450px;
     object-fit: scale-down;
 }
+
+/* Menu de perfil e dashboard - Shoelace */
+
+
+sl-menu-item a {
+    text-decoration: none;
+    color: black;
+}

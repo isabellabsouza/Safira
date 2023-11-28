@@ -79,4 +79,11 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ])->with('enderecos', $enderecos);
     }
+
+    public function trocarSenha()
+    {
+        return view('profile.trocar-senha', [
+            'user' => Auth::user(),
+        ]);
+    }
 }

@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [PedidoController::class, 'index'])->name('profile.pedidos');
     Route::get('/profile/enderecos', [ProfileController::class, 'enderecos'])->name('profile.enderecos');
     Route::get('profile/info', [ProfileController::class, 'info'])->name('profile.info');
+    Route::get('profile/trocar-senha', [ProfileController::class, 'trocarSenha'])->name('profile.senha');
     
     Route::get('/endereco', [EnderecoController::class, 'create'])->name('endereco.create');
     Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
