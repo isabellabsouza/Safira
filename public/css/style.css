@@ -18,7 +18,7 @@
     background-color: #8847f9;
 }
 
-.botao-medidas {
+.botao-medidas, .botao-tamanhos {
     border: 1px solid gray;
 }
 
@@ -61,4 +61,3 @@ sl-menu-item a {
     text-decoration: none;
     color: black;
 }
-

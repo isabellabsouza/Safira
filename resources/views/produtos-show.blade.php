@@ -2,6 +2,7 @@
     <x-navbar />
     <div class="container mt-3">
         <div class="row">
+            <!-- Carousel Imagens -->
             <div class="col col-1">
                 <div>
                     <?php $i = 0; ?>
@@ -39,6 +40,7 @@
                     @endif
                 </div>
             </div>
+            <!-- Informações do Produto -->
             <div class="col col-6">
                 <div class="container">
                     <div class="row">
@@ -80,12 +82,17 @@
                     </div>
                     <div class="row">
                         <div class="col mt-3">
-                            <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-outline-secondary rounded-0 me-2">P</button>
-                                <button type="button" class="btn btn-outline-secondary rounded-0 me-2">PP</button>
-                                <button type="button" class="btn btn-outline-secondary rounded-0 me-2">M</button>
-                                <button type="button" class="btn btn-outline-secondary rounded-0 me-2">G</button>
-                                <button type="button" class="btn btn-outline-secondary rounded-0 me-2">GG</button>
+                            <div class="btn-group me-2" role="group" aria-label="Basic radio toggle button group">
+                                @foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho)
+                                    @php
+                                        $quantidadeEstoque = $estoque->firstWhere('tamanho', $tamanho)->quantidade;
+                                        $disabled = $quantidadeEstoque == 0 ? 'disabled' : '';
+                                    @endphp
+                                    <input type="radio" class="btn-check" name="btnradio"
+                                        id="btnTam{{ $tamanho }}" autocomplete="off" {{ $disabled }}>
+                                    <label class="btn botao-tamanhos rounded-0 me-2"
+                                        for="btnTam{{ $tamanho }}">{{ $tamanho }}</label>
+                                @endforeach
                             </div>
                             <form class="mt-3" action="{{ route('carrinho.store') }}" method="post"
                                 enctype="multipart/form-data">
@@ -100,7 +107,8 @@
                 </div>
             </div>
         </div>
-        <!-- Modal -->
+
+        <!-- Modal Tabela de Medidas -->
         <div class="modal fade" id="modalTabelaMedidas" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content rounded-0 p-3">
@@ -109,22 +117,26 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>A tabela deve servir de guia para que você possa escolher a numeração adequada.
-                            Ela não contempla a medida exata dos produtos.</p>
+                        <p class="text-center">A tabela deve servir de guia para que você possa escolher a numeração
+                            adequada.
+                            <br> Ela não contempla a medida exata dos produtos.
+                        </p>
 
-                        <img class="img-fluid" src="/assets/tabela-medidas.jpg" alt="">
+                        <img class="img-fluid mt-3" src="/assets/tabela-medidas.jpg" alt="Tabela de Medidas">
 
-                        <p>VEJA COMO MEDIR SEU CORPO:</p>
+                        <p class="mt-2"><u>VEJA COMO MEDIR SEU CORPO:</u></p>
 
-                        <p>BUSTO: Passe a fita métrica pelas costas e meça na altura dos mamilos.</p>
+                        <p><u>BUSTO:</u> Passe a fita métrica pelas costas e meça na altura dos mamilos.</p>
 
                         <p>
-                            CINTURA Passe a fita métrica em volta do seu abdômen, acima do osso do quadril, na medida
+                            <u>CINTURA:</u> Passe a fita métrica em volta do seu abdômen, acima do osso do quadril, na
+                            medida
                             mais fina.
                         </p>
 
                         <p>
-                            QUADRIL Na parte mais larga do bumbum, mais ou menos na metade da altura, contorne o quadril
+                            <u>QUADRIL:</u> Na parte mais larga do bumbum, mais ou menos na metade da altura, contorne o
+                            quadril
                             com a fita métrica.
                         </p>
                     </div>
