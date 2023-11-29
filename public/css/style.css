@@ -10,6 +10,10 @@
     width: 325px;
 }
 
+/* 
+* BOTÕES
+*/
+
 .botao-lilas {
     background-color: #9353FF;
 }
@@ -22,8 +26,13 @@
     border: 1px solid gray;
 }
 
-.botao-medidas:hover {
-    border: 1px solid black;
+.botao-medidas:hover, .botao-tamanhos:hover {
+    border: 1.5px solid black !important;
+}
+
+.btn-check:checked + .botao-tamanhos{
+    background-color: black !important;
+    color: white;
 }
 
 .verde-limao {

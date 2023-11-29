@@ -80,20 +80,30 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col mt-3">
+                            <!-- Botões Tamanhos -->
                             <div class="btn-group me-2" role="group" aria-label="Basic radio toggle button group">
                                 @foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho)
                                     @php
                                         $quantidadeEstoque = $estoque->firstWhere('tamanho', $tamanho)->quantidade;
                                         $disabled = $quantidadeEstoque == 0 ? 'disabled' : '';
                                     @endphp
-                                    <input type="radio" class="btn-check" name="btnradio"
-                                        id="btnTam{{ $tamanho }}" autocomplete="off" {{ $disabled }}>
-                                    <label class="btn botao-tamanhos rounded-0 me-2"
-                                        for="btnTam{{ $tamanho }}">{{ $tamanho }}</label>
+                                    <input type="radio" 
+                                        id="btnTam{{ $tamanho }}" 
+                                        name="btnradio"
+                                        class="btn-check" 
+                                        autocomplete="off" 
+                                        {{ $disabled }}
+                                        value="{{ $tamanho }}">
+
+                                    <label class="btn botao-tamanhos rounded-0 me-2" for="btnTam{{ $tamanho }}">
+                                        {{ $tamanho }}
+                                    </label>
                                 @endforeach
                             </div>
+                            <!-- Botão Adicionar ao Carrinho -->
                             <form class="mt-3" action="{{ route('carrinho.store') }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
