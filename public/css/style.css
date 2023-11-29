@@ -14,6 +14,18 @@
     background-color: #9353FF;
 }
 
+.botao-lilas:hover {
+    background-color: #8847f9;
+}
+
+.botao-medidas {
+    border: 1px solid gray;
+}
+
+.botao-medidas:hover {
+    border: 1px solid black;
+}
+
 .verde-limao {
     color: #DAFF01;
 }
@@ -49,3 +61,4 @@ sl-menu-item a {
     text-decoration: none;
     color: black;
 }
+
