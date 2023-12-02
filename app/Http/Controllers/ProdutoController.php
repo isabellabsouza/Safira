@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estoque;
 use App\Models\Produto;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
@@ -44,6 +45,17 @@ class ProdutoController extends Controller
             unset($imagemProduto);
         }
 
+        $tamanhos = ['P', 'PP', 'M', 'G', 'GG'];
+
+        foreach ($tamanhos as $tamanho) {
+            Estoque::create([
+                'produto_id' => $produto->id,
+                'tamanho' => $tamanho,
+                'quantidade' => 0,
+            ]);
+        }
+
+
         return to_route('home');
     }
 
@@ -54,6 +66,7 @@ class ProdutoController extends Controller
     {
         
         $produto = Produto::find($id);
+        
         //por enquanto vou fazer produtos recomendados aleatorios
         $produtosRecomendados = Produto::inRandomOrder()
             ->where('id', '!=', $id)
@@ -63,8 +76,11 @@ class ProdutoController extends Controller
             
         //dd($produto->imagemProduto);
         return view('produtos-show')
-            ->with('produto', $produto)
-            ->with('produtosRecomendados', $produtosRecomendados);
+            ->with([
+                'produto' => $produto,
+                'produtosRecomendados' => $produtosRecomendados,
+                'estoque' => $produto->estoque,
+                ]);
     }
 
     /**
@@ -86,8 +102,26 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produto $produto)
+    public function destroy($produto)
     {
-        //
+        $produto = Produto::find($produto);
+        $produto->delete();
+        
+        return to_route('dashboard.produtos');
+    }
+
+    public function status($id)
+    {
+        
+        $produto = Produto::find($id);
+        
+        if($produto->status == 'inativo'){
+            $produto->status = 'ativo';
+        }else{
+            $produto->status = 'inativo';
+        }
+        $produto->save();
+
+        return to_route('dashboard.produtos');
     }
 }

@@ -19,6 +19,13 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function info()
+    {
+        return view('profile.info', [
+            'user' => Auth::user(),
+        ]);
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.pedidos', [
@@ -40,7 +47,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.info')->with('status', 'profile-updated');
     }
 
     /**
@@ -71,5 +78,12 @@ class ProfileController extends Controller
         return view('profile.enderecos', [
             'user' => $request->user(),
         ])->with('enderecos', $enderecos);
+    }
+
+    public function trocarSenha()
+    {
+        return view('profile.trocar-senha', [
+            'user' => Auth::user(),
+        ]);
     }
 }

@@ -14,6 +14,18 @@
     background-color: #9353FF;
 }
 
+.botao-lilas:hover {
+    background-color: #8847f9;
+}
+
+.botao-medidas, .botao-tamanhos {
+    border: 1px solid gray;
+}
+
+.botao-medidas:hover {
+    border: 1px solid black;
+}
+
 .verde-limao {
     color: #DAFF01;
 }
@@ -40,4 +52,12 @@
 .carousel-item img{
     height: 450px;
     object-fit: scale-down;
+}
+
+/* Menu de perfil e dashboard - Shoelace */
+
+
+sl-menu-item a {
+    text-decoration: none;
+    color: black;
 }

@@ -13,7 +13,8 @@ class Produto extends Model
         'nome',
         'descricao',
         'preco',
-        'categoria'
+        'categoria',
+        'status',
     ];
 
     public function estoque()
