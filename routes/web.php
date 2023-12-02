@@ -50,6 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido.show');
 });
 
+Route::middleware(['auth', 'role:user'])->group(function (){
+    
+});
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'pedidos'])->name('dashboard.pedidos');
