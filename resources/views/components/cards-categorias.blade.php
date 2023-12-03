@@ -9,7 +9,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.camisetas') }}" class="text-decoration-none text-white">Camisetas</a>
+                    <a href="{{ route('categorias.camisetas') }}" class="text-decoration-none text-white stretched-link">Camisetas</a>
                 </p>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.vestidos') }}" class="text-decoration-none text-white">Vestidos</a>
+                    <a href="{{ route('categorias.vestidos') }}" class="text-decoration-none text-white stretched-link">Vestidos</a>
                 </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.shorts') }}" class="text-decoration-none text-white">Shorts</a>
+                    <a href="{{ route('categorias.shorts') }}" class="text-decoration-none text-white stretched-link">Shorts</a>
                 </p>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.moletom') }}" class="text-decoration-none text-white">Moletons</a>
+                    <a href="{{ route('categorias.moletom') }}" class="text-decoration-none text-white stretched-link">Moletons</a>
                 </p>
             </div>
         </div>
@@ -65,7 +65,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.calcas') }}" class="text-decoration-none text-white">Calças</a>
+                    <a href="{{ route('categorias.calcas') }}" class="text-decoration-none text-white stretched-link">Calças</a>
                 </p>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="{{ route('categorias.acessorios')}}" class="text-decoration-none text-white">Acessórios</a>
+                    <a href="{{ route('categorias.acessorios')}}" class="text-decoration-none text-white stretched-link">Acessórios</a>
                 </p>
             </div>
         </div>

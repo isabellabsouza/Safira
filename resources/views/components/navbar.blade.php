@@ -3,16 +3,22 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        @php
+            $route = Route::currentRouteName();
+        @endphp
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home')}}">Home</a>
+                    <a class="nav-link {{$route == 'home' ? 'active' : ''}}" aria-current="page" href="{{ route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('produtos.index')}}">Produtos</a>
+                    <a class="nav-link
+                    {{ $route == 'produtos.index' ? 'active' : ''}}" 
+                    href="{{ route('produtos.index')}}">Produtos</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle bg-black"
+                    <a class="nav-link dropdown-toggle bg-black
+                    {{ $route == 'categorias.camisetas' || $route == 'categorias.calcas' || $route == 'categorias.vestidos' || $route == 'categorias.moletom' || $route == 'categorias.shorts' || $route == 'categorias.acessorios' ? 'active' : ''}}"
                         aria-expanded="false"
                         data-bs-toggle="dropdown"
                         href="#">
@@ -40,7 +46,9 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('produtos.novidades')}}">Novidades</a>
+                    <a class="nav-link
+                    {{ $route == 'produtos.novidades' ? 'active' : ''}}" 
+                    href="{{ route('produtos.novidades')}}">Novidades</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
