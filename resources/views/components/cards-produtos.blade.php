@@ -17,7 +17,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $produto->nome }}</h5>
             
-            <p>{{ $produto->preco }}</p>
+            <p>R$ {{ number_format($produto->preco, 2, ',', '.') }}</p>
             <a href="{{ route('produto.show', $produto->id) }}"
                 class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
         </div>
