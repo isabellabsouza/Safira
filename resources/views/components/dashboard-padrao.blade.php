@@ -22,7 +22,10 @@
     <x-nav-padrao />
     
     <div class="container row">
-        <h1>Olá, {{ Auth::user()->name }}</h1>
+        <h1>Painel de Controle</h1>
+
+
+
         <sl-menu class="col-3">
             <sl-menu-item class="menu-item">
                 <a href="{{ route('dashboard.usuarios') }}">Usuários</a>
