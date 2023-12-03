@@ -1,6 +1,6 @@
 <x-padrao title="Cadastre-se">
     <x-nav-padrao />
-    <div class="container mt-5 w-25 border rounded shadow p-4">
+    <div class="container mt-5 w-25 border rounded-0 shadow p-4">
         <div class="row">
             <div class="col">
                 <h3 class="text-center">Cadastre-se</h3>
@@ -54,9 +54,7 @@
                     </a>
                 </div>
                 <div class="col text-end">
-                    <x-primary-button class="ms-4">
-                        {{ __('Registrar') }}
-                    </x-primary-button>
+                    <button class="btn botao-lilas rounded-0">Registrar</button>
                 </div>
             </div>
         </form>

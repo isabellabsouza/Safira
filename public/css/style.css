@@ -16,6 +16,8 @@
 
 .botao-lilas {
     background-color: #9353FF;
+    color: white;
+    font-family: 'PT Serif', serif;
 }
 
 .botao-lilas:hover {
@@ -68,5 +70,19 @@
 
 sl-menu-item a {
     text-decoration: none;
+    color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Serif', serif;
+    
+}
+
+label {
+    font-family: 'PT Serif', serif;
+}
+
+a {
+    font-family: 'PT Serif', serif;
     color: black;
 }

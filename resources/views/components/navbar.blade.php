@@ -9,13 +9,38 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lojas</a>
+                    <a class="nav-link" href="#">Produtos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle bg-black"
+                        aria-expanded="false"
+                        data-bs-toggle="dropdown"
+                        href="#">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end bg-dark rounded-0">
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.camisetas') }}">Camisetas</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.calcas') }}">Calças</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.vestidos') }}">Vestidos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.moletom') }}">Moletom</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.shorts') }}">Shorts</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-bg-dark" href="{{ route('categorias.acessorios') }}">Acessórios</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Novidades</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Promoção</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

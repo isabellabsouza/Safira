@@ -124,4 +124,41 @@ class ProdutoController extends Controller
 
         return to_route('dashboard.produtos');
     }
+
+    public function camisetas()
+    {
+        $produtos = Produto::all()->where('categoria', 'camisetas');
+        //dd($produtos);
+        return view('categorias.camisetas')->with('produtos', $produtos);
+    }
+
+    public function calcas()
+    {
+        $produtos = Produto::where('categoria', 'calcas')->get();
+        return view('categorias.calcas')->with('produtos', $produtos);
+    }
+
+    public function shorts()
+    {
+        $produtos = Produto::where('categoria', 'shorts')->get();
+        return view('categorias.shorts')->with('produtos', $produtos);
+    }
+
+    public function vestidos()
+    {
+        $produtos = Produto::where('categoria', 'vestidos')->get();
+        return view('categorias.vestidos')->with('produtos', $produtos);
+    }
+
+    public function moletom()
+    {
+        $produtos = Produto::where('categoria', 'moletom')->get();
+        return view('categorias.moletom')->with('produtos', $produtos);
+    }
+
+    public function acessorios()
+    {
+        $produtos = Produto::where('categoria', 'acessorios')->get();
+        return view('categorias.acessorios')->with('produtos', $produtos);
+    }
 }

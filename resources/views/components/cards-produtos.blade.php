@@ -1,7 +1,7 @@
-<div class="col-12 col-md-6 col-xxl-4">
-    <div class="card">
+<div class="col-12 col-md-6 col-xxl-3">
+    <div class="card rounded-0">
         @if ($produto->imagemProduto->isNotEmpty())
-        <img class="card-img-top" 
+        <img class="card-img-top rounded-0" 
             width="100" 
             height="50%" 
             src="{{ asset('storage/' . $produto->imagemProduto->first()->caminho) }}"
@@ -16,7 +16,7 @@
         @endif
         <div class="card-body">
             <h5 class="card-title">{{ $produto->nome }}</h5>
-            <p class="card-text">{{ $produto->descricao }}</p>
+            
             <p>{{ $produto->preco }}</p>
             <a href="{{ route('produto.show', $produto->id) }}"
                 class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
