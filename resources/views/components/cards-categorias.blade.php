@@ -2,15 +2,84 @@
 <div class="container row mx-auto g-4">
     <div class="col-6 col-md-4 col-xxl-2">
         <div class="card rounded-0 border-0">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/camiseta.jpg" 
+                alt=""/>
             <div class="card-header bg-black text-bg-dark">
                 <p class="text-center">
-                    <a href="" class="text-decoration-none text-white">Camisetas</a>
+                    <a href="{{ route('categorias.camisetas') }}" class="text-decoration-none text-white">Camisetas</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+        <div class="card rounded-0 border-0">
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/vestido.jpg" 
+                alt=""/>
+            <div class="card-header bg-black text-bg-dark">
+                <p class="text-center">
+                    <a href="{{ route('categorias.vestidos') }}" class="text-decoration-none text-white">Vestidos</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+        <div class="card rounded-0 border-0">
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/shorts.jpg" 
+                alt=""/>
+            <div class="card-header bg-black text-bg-dark">
+                <p class="text-center">
+                    <a href="{{ route('categorias.shorts') }}" class="text-decoration-none text-white">Shorts</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+        <div class="card rounded-0 border-0">
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/moletom.jpg" 
+                alt=""/>
+            <div class="card-header bg-black text-bg-dark">
+                <p class="text-center">
+                    <a href="{{ route('categorias.moletom') }}" class="text-decoration-none text-white">Moletons</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+        <div class="card rounded-0 border-0">
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/calca.jpg" 
+                alt=""/>
+            <div class="card-header bg-black text-bg-dark">
+                <p class="text-center">
+                    <a href="{{ route('categorias.calcas') }}" class="text-decoration-none text-white">Calças</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+        <div class="card rounded-0 border-0">
+            <img class="card-img-top rounded-0" 
+                width="100" 
+                height="50%"
+                src="assets/categorias/acessorio.jpg" 
+                alt=""/>
+            <div class="card-header bg-black text-bg-dark">
+                <p class="text-center">
+                    <a href="{{ route('categorias.acessorios')}}" class="text-decoration-none text-white">Acessórios</a>
                 </p>
             </div>
         </div>

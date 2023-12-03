@@ -50,6 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido.show');
 });
 
+Route::middleware(['auth', 'role:user'])->group(function (){
+    
+});
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'pedidos'])->name('dashboard.pedidos');
@@ -71,3 +75,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('produto.show');
+Route::get('/categorias/camisetas', [ProdutoController::class, 'camisetas'])->name('categorias.camisetas');
+Route::get('/categorias/calcas', [ProdutoController::class, 'calcas'])->name('categorias.calcas');
+Route::get('/categorias/vestidos', [ProdutoController::class, 'vestidos'])->name('categorias.vestidos');
+Route::get('/categorias/moletom', [ProdutoController::class, 'moletom'])->name('categorias.moletom');
+Route::get('/categorias/shorts', [ProdutoController::class, 'shorts'])->name('categorias.shorts');
+Route::get('/categorias/acessorios', [ProdutoController::class, 'acessorios'])->name('categorias.acessorios');
+Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/novidades', [ProdutoController::class, 'novidades'])->name('produtos.novidades');

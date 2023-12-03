@@ -13,6 +13,7 @@
 
     <x-cards-categorias />
 
+    <x-banner-facilidades />
 
     <x-footer />
 </x-padrao>

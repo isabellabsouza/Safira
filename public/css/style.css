@@ -10,8 +10,14 @@
     width: 325px;
 }
 
+/* 
+* BOTÕES
+*/
+
 .botao-lilas {
     background-color: #9353FF;
+    color: white;
+    font-family: 'PT Serif', serif;
 }
 
 .botao-lilas:hover {
@@ -22,8 +28,13 @@
     border: 1px solid gray;
 }
 
-.botao-medidas:hover {
-    border: 1px solid black;
+.botao-medidas:hover, .botao-tamanhos:hover {
+    border: 1.5px solid black !important;
+}
+
+.btn-check:checked + .botao-tamanhos{
+    background-color: black !important;
+    color: white;
 }
 
 .verde-limao {
@@ -61,3 +72,18 @@ sl-menu-item a {
     text-decoration: none;
     color: black;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'PT Serif', serif;
+    
+}
+
+label {
+    font-family: 'PT Serif', serif;
+}
+
+a {
+    font-family: 'PT Serif', serif;
+    color: black;
+}
+

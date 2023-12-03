@@ -28,7 +28,11 @@
     <!-- Shoelace JS CDN -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js">
     </script>
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=PT+Serif:wght@400;700&display=swap" 
+        rel="stylesheet">
 
     <title>{{ $title }}</title>
 </head>

@@ -11,17 +11,17 @@ use App\Models\ImagemProduto;
 class ProdutoController extends Controller
 {
     public function __construct(private ProdutoRepository $repository){}
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        
+        return view('produtos.index')->with('produtos', Produto::all()->where('status', 'ativo'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function novidades()
+    {
+        return view('produtos.novidades')->with('produtos', Produto::all()->where('status', 'ativo')->sortByDesc('created_at'));
+    }
+
     public function create()
     {
         return view('produtos-create');
@@ -123,5 +123,42 @@ class ProdutoController extends Controller
         $produto->save();
 
         return to_route('dashboard.produtos');
+    }
+
+    public function camisetas()
+    {
+        $produtos = Produto::all()->where('categoria', 'camisetas');
+        //dd($produtos);
+        return view('categorias.camisetas')->with('produtos', $produtos);
+    }
+
+    public function calcas()
+    {
+        $produtos = Produto::where('categoria', 'calcas')->get();
+        return view('categorias.calcas')->with('produtos', $produtos);
+    }
+
+    public function shorts()
+    {
+        $produtos = Produto::where('categoria', 'shorts')->get();
+        return view('categorias.shorts')->with('produtos', $produtos);
+    }
+
+    public function vestidos()
+    {
+        $produtos = Produto::where('categoria', 'vestidos')->get();
+        return view('categorias.vestidos')->with('produtos', $produtos);
+    }
+
+    public function moletom()
+    {
+        $produtos = Produto::where('categoria', 'moletom')->get();
+        return view('categorias.moletom')->with('produtos', $produtos);
+    }
+
+    public function acessorios()
+    {
+        $produtos = Produto::where('categoria', 'acessorios')->get();
+        return view('categorias.acessorios')->with('produtos', $produtos);
     }
 }
