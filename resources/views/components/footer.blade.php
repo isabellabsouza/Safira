@@ -45,6 +45,6 @@
         
     </div>
 
-    <p class="py-3 mt-3">2023 &copy; Safira | E-commerce</p>
+    <p class="py-3 mt-3 mb-0">2023 &copy; Safira | E-commerce</p>
 
 </footer>
