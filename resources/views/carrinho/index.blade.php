@@ -130,11 +130,8 @@
                     </div>
                     <div class="row justify-content-center mb-3">
                         <div class="col col-auto">
-                            <form action="{{ route('pedido.store') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="valor_total" value="{{ $total }}">
-                                <button class="btn btn-primary rounded-pill">Finalizar Compra</button>
-                            </form>
+                            <button class="btn btn-primary rounded-pill" onclick="location.href='{{ route('carrinho.checkout') }}'
+                            ">Finalizar Compra</button>
                         </div>
                     </div>
                 </div>
