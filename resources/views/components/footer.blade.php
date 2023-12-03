@@ -1,6 +1,18 @@
 <footer class="text-center bg-black text-bg-dark mt-3">
-    <div class="row">
+    <div class="row pt-3">
 
+        
+        <div class="col justify-content-center">
+            <h5>ENTRE EM CONTATO</h5>
+            <div class="row">
+                <a href="" class="text-decoration-none text-white me-2">
+                    <i class="bi bi-envelope-fill"></i> safira@gmail.com
+                </a>
+                <a href="" class="text-decoration-none text-white me-2">
+                    <i class="bi bi-whatsapp"></i> (11) 99999-9999
+                </a>
+            </div>
+        </div>
         <div class="col justify-content-center">
             <h5>REDES</h5>
             <div class="">
@@ -20,18 +32,6 @@
             </div>
         </div>
         <div class="col justify-content-center">
-            <h5>ENTRE EM CONTATO</h5>
-            <div class="row">
-                <a href="" class="text-decoration-none text-white me-2">
-                    <i class="bi bi-envelope-fill"></i> safira@gmail.com
-                </a>
-                <a href="" class="text-decoration-none text-white me-2">
-                    <i class="bi bi-whatsapp"></i> (11) 99999-9999
-                </a>
-            </div>
-        </div>
-        
-        <div class="col justify-content-center">
             <h5>ENDEREÇO</h5>
             <div class="row">
                 <a href="" class="text-decoration-none text-white me-2">
@@ -45,6 +45,6 @@
         
     </div>
 
-    <p class="py-3">2023 &copy; Safira | E-commerce</p>
+    <p class="py-3 mt-3">2023 &copy; Safira | E-commerce</p>
 
 </footer>
