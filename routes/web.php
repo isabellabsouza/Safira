@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
@@ -20,9 +21,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/carrinho', [CarrinhoController::class, 'store'])->name('carrinho.store');
     Route::put('/carrinho', [CarrinhoController::class, 'update'])->name('carrinho.update');
     Route::delete('/carrinho/excluir/{id}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
+
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('carrinho.checkout');
+    Route::post('/checkout', [CheckoutController::class, 'index'])->name('carrinho.checkout');
 
     Route::post('/pedido', [PedidoController::class, 'store'])->name('pedido.store');
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido.show');
@@ -71,6 +75,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 
