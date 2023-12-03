@@ -50,7 +50,14 @@
 
             <ul class="navbar-nav ms-3">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('carrinho.index') }}"><i class="bi bi-bag-fill fs-4"></i></a>
+                    <a class="nav-link active position-relative" href="{{ route('carrinho.index') }}">
+                        <i class="bi bi-bag-fill fs-4"></i>
+                        @if(\App\Models\Carrinho::count() > 0 && Auth::check())
+                        <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ \App\Models\Carrinho::count() }}
+                        </span>
+                        @endif
+                    </a>
                 </li>
             </ul>
 
