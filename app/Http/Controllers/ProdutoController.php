@@ -11,17 +11,17 @@ use App\Models\ImagemProduto;
 class ProdutoController extends Controller
 {
     public function __construct(private ProdutoRepository $repository){}
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        
+        return view('produtos.index')->with('produtos', Produto::all()->where('status', 'ativo'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function novidades()
+    {
+        return view('produtos.novidades')->with('produtos', Produto::all()->where('status', 'ativo')->sortByDesc('created_at'));
+    }
+
     public function create()
     {
         return view('produtos-create');

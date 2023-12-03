@@ -9,7 +9,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Produtos</a>
+                    <a class="nav-link" href="{{ route('produtos.index')}}">Produtos</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle bg-black"
@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Novidades</a>
+                    <a class="nav-link" href="{{ route('produtos.novidades')}}">Novidades</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

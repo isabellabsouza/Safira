@@ -81,3 +81,5 @@ Route::get('/categorias/vestidos', [ProdutoController::class, 'vestidos'])->name
 Route::get('/categorias/moletom', [ProdutoController::class, 'moletom'])->name('categorias.moletom');
 Route::get('/categorias/shorts', [ProdutoController::class, 'shorts'])->name('categorias.shorts');
 Route::get('/categorias/acessorios', [ProdutoController::class, 'acessorios'])->name('categorias.acessorios');
+Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/novidades', [ProdutoController::class, 'novidades'])->name('produtos.novidades');

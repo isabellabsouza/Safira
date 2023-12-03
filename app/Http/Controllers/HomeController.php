@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
         //$produtos = Produto::all();
+        //$produtos = Produto::all()->where('ativo', 1)->with('imagemProduto')->get();
         $produtos = Produto::with('imagemProduto')->get();
-        return view('index')->with('produtos', $produtos);
+        $produtos_mais_pedidos = Produto::select('produtos.*', DB::raw('COUNT(produtos.id) AS qtd'))
+            ->join('item_pedidos', 'produtos.id', '=', 'item_pedidos.produto_id')
+            ->groupBy('produto_id')
+            ->orderBy('qtd', 'DESC')
+            ->limit(8)
+            ->get();
+        return view('index')->with('produtos', $produtos_mais_pedidos);
     }    
 }
