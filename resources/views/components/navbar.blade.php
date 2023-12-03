@@ -51,8 +51,9 @@
                     href="{{ route('produtos.novidades')}}">Novidades</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 rounded-0" type="search" placeholder="Pesquisa" aria-label="Search">
+            <form action="search" method="POST" class="d-flex" role="search">
+                @csrf
+                <input class="form-control me-2 rounded-0" id="search" name="search" type="search" placeholder="Pesquisa" aria-label="Search">
                 <button class="btn btn-outline-light rounded-0" type="submit">Buscar</button>
             </form>
 
