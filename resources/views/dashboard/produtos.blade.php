@@ -81,7 +81,7 @@
                                                 @foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho)
                                                 <td>
                                                     <div class="btn-group" role="group">
-                                                        <button type="submit" name="action" value="btnMinus"
+                                                        <button type="button" name="action" value="btnMinus"
                                                             class="btn btn-light btn-sm border"
                                                             onclick="minus(this)"
                                                             >&minus;</button>
@@ -91,7 +91,7 @@
                                                             inputmode="numeric" 
                                                             value="{{ $produto->estoque->firstWhere('tamanho', $tamanho)->quantidade ?? 0 }}" 
                                                             readonly>
-                                                        <button type="submit" name="action" value="btnPlus"
+                                                        <button type="button" name="action" value="btnPlus"
                                                             class="btn btn-light btn-sm border"
                                                             onclick="plus(this)"
                                                             >&plus;</button>
