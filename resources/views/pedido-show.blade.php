@@ -3,10 +3,9 @@
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col col-2">
-                <button type="button" class="btn btn-warning" onclick="window.history.back()">
-                    <i class="bi bi-arrow-left"></i>
-                    &nbsp;Voltar
-                </button>
+                <sl-tooltip content="Voltar" placement="right">
+                    <sl-icon-button name="arrow-left-short" label="Back" class="fs-1" onclick="window.history.back()"></sl-icon-button>
+                </sl-tooltip>
             </div>
             <div class="col col-8 text-center">
                 <h4>Pedido {{$pedido->numero}}</h4>
