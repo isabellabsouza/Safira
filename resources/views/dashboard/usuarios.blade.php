@@ -1,5 +1,5 @@
 <x-dashboard-padrao>
-    <a class="btn botao-lilas mt-3" href="{{ route('dashboard.novoAdmin')}}">Novo Usuário</a>
+    <a class="btn btn-primary mt-3" href="{{ route('dashboard.novoAdmin')}}">Novo Usuário</a>
     <h5 class="mt-3">Quantidade de clientes cadastrados: <b>{{ $qtdClientes }}</b></h5>
     <table id="admin-table" class="table">
         <thead>

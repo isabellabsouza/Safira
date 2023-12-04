@@ -19,6 +19,7 @@ class DashboardController extends Controller
 {
     public function pedidos()
     {
+        
         return view('dashboard.pedidos')->with('pedidos', Pedido::all());
     }
 
