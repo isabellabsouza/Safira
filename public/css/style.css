@@ -23,10 +23,12 @@ body{
     background-color: #9353FF;
     color: white;
     font-family: 'PT Serif', serif;
+    border-radius: 0;
 }
 
 .botao-lilas:hover {
-    background-color: #8847f9;
+    background-color: #7c33f8;
+    color: white;
 }
 
 .botao-medidas, .botao-tamanhos {
@@ -92,3 +94,6 @@ a {
     color: black;
 }
 
+input {
+    font-family: 'PT Serif', serif;
+}

@@ -63,6 +63,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'pedidos'])->name('dashboard.pedidos');
     Route::get('/dashboard/usuarios', [DashboardController::class, 'usuarios'])->name('dashboard.usuarios');
+    Route::get('/dashboard/usuarios/create', [DashboardController::class, 'novoAdmin'])->name('dashboard.novoAdmin');
+    Route::post('/dashboard/usuarios/create', [DashboardController::class, 'storeNovoAdmin'])->name('dashboard.storeNovoAdmin');
+
     Route::get('/dashboard/produtos', [DashboardController::class, 'produtos'])->name('dashboard.produtos');
 
     Route::get('/produto', [ProdutoController::class, 'create'])->name('produto.create');
