@@ -74,6 +74,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::patch('/produto/{id}', [ProdutoController::class, 'update'])->name('produto.update');
     Route::delete('/produto/{id}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
     Route::put('/produto/{id}/status', [ProdutoController::class, 'status'])->name('produto.status');
+    Route::put('/produto/estoque', [ProdutoController::class, 'estoque'])->name('produto.estoque');
 });
 
 require __DIR__ . '/auth.php';

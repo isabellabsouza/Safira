@@ -52,13 +52,18 @@ class PedidoController extends Controller
             'cpf' => $request->cpf,
         ]);
 
-        $itensCarrinho = Carrinho::where('user_id', auth()->user()->id)->with('produto')->get();
+        $itensCarrinho = Carrinho::select('carrinhos.*', 'produtos.nome', 'produtos.preco', 'produtos.categoria', 'produtos.descricao', 'produtos.id as produto_id', 'estoques.tamanho', 'estoques.id as estoque_id')
+            ->where('user_id', auth()->user()->id)
+            ->with('produto')
+            ->join('estoques', 'estoques.id', '=', 'carrinhos.estoque_id')
+            ->join('produtos', 'produtos.id', '=', 'estoques.produto_id')
+            ->get();
         
 
         foreach ($itensCarrinho as $item){
             ItemPedido::create([
                 'pedido_id' => $pedido->id,
-                'produto_id' => $item->produto_id,
+                'estoque_id' => $item->estoque_id,
                 'quantidade' => $item->quantidade,
             ]);
         }
@@ -71,23 +76,15 @@ class PedidoController extends Controller
     public function show($id)
     {
         $pedido = Pedido::find($id);
-        /*$itens_pedido = DB::table('item_pedidos')
-            ->join('produtos', 'item_pedidos.produto_id', '=', 'produtos.id')
-            ->join('imagem_produtos', 'produtos.id', '=', 'imagem_produtos.produto_id')
-            ->select('item_pedidos.*', 'produtos.nome', 'produtos.preco', 'produtos.descricao', 'imagem_produtos.caminho')
+
+        $itens_pedido = Produto::select('item_pedidos.*','produtos.id', 'produtos.nome', 'produtos.preco', 'produtos.descricao', 'imagem_produtos.caminho')
             ->where('item_pedidos.pedido_id', '=', $id)
-            ->get();
-        */
-
-
-
-        $itens_pedido = Produto::where('item_pedidos.pedido_id', '=', $id)
-            ->join('item_pedidos', 'produtos.id', '=', 'item_pedidos.produto_id')
+            ->join('estoques', 'produtos.id', '=', 'estoques.produto_id')
+            ->join('item_pedidos', 'estoques.id', '=', 'item_pedidos.estoque_id')
             ->join('imagem_produtos', 'produtos.id', '=', 'imagem_produtos.produto_id')
-            ->select('item_pedidos.*','produtos.id', 'produtos.nome', 'produtos.preco', 'produtos.descricao', 'imagem_produtos.caminho')
-            ->groupBy('produtos.id')
-            ->get();
-
+            ->groupBy('estoques.id')
+            ->get();        
+            
         return view('pedido-show')
             ->with('pedido', $pedido)
             ->with('itens_pedido', $itens_pedido);

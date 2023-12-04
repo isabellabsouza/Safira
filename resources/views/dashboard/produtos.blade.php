@@ -69,13 +69,16 @@
                                             <th scope="col">M</th>
                                             <th scope="col">G</th>
                                             <th scope="col">GG</th>
-                                            <th scope="col">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="row">Quantidade</td>
-                                            @foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho)
+                                            <form action="{{route('produto.estoque')}}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="produto_id" value="{{ $produto->id }}">
+                                                <td scope="row">Quantidade</td>
+                                                @foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho)
                                                 <td>
                                                     <div class="btn-group" role="group">
                                                         <button type="submit" name="action" value="btnMinus"
@@ -84,6 +87,7 @@
                                                             >&minus;</button>
                                                         <input type="text" 
                                                             class="form-control form-control-sm bg-light w-25"
+                                                            name="{{ $tamanho }}"
                                                             inputmode="numeric" 
                                                             value="{{ $produto->estoque->firstWhere('tamanho', $tamanho)->quantidade ?? 0 }}" 
                                                             readonly>
@@ -94,11 +98,6 @@
                                                     </div>
                                                 </td>
                                             @endforeach
-                                            <td>
-                                                <a class="btn btn-primary" href="#">Editar</a>
-                                                <a class="btn btn-danger" href="#">Excluir</a>
-                                            </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
