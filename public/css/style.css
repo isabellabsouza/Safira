@@ -48,6 +48,7 @@ body{
     color: #DAFF01;
 }
 
+
 @media(min-width: 768px) {
 
     .div-novidades {
@@ -95,5 +96,9 @@ a {
 }
 
 input {
+    font-family: 'PT Serif', serif;
+}
+
+table, th, td {
     font-family: 'PT Serif', serif;
 }
