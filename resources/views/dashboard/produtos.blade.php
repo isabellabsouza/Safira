@@ -97,6 +97,7 @@
                                                             >&plus;</button>
                                                     </div>
                                                 </td>
+                                            </form>
                                             @endforeach
                                         </tr>
                                     </tbody>

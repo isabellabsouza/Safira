@@ -16,7 +16,7 @@
         </div>
         <div class="row mb-3">
             <x-input-label for="preco" :value="__('Preço')" />
-            <x-text-input id="preco" type="number" name="preco" :value="old('preco')" required autofocus />
+            <x-text-input id="preco" type="text" name="preco" :value="old('preco')" required autofocus />
         </div>
         <div class="row mb-3">
             <x-input-label for="categoria" :value="__('Categoria')" />
