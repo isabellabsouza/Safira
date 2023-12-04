@@ -12,7 +12,14 @@ class CheckoutController extends Controller
      */
     public function index(Request $request)
     {
-        $carrinho = Carrinho::where('user_id', auth()->user()->id)->with('produto')->get();
+        $carrinho = Carrinho::select('carrinhos.*', 'produtos.nome', 'produtos.preco', 'produtos.categoria', 'produtos.descricao', 'produtos.id as produto_id', 'estoques.tamanho')
+            ->where('user_id', auth()->user()->id)
+            ->with('produto')
+            ->join('estoques', 'estoques.id', '=', 'carrinhos.estoque_id')
+            ->join('produtos', 'produtos.id', '=', 'estoques.produto_id')
+            ->get();
+        
+        
         if($carrinho->isEmpty()){
             return redirect()->route('home');
         }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
+use App\Models\Estoque;
 use App\Repositories\CarrinhoRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,13 @@ class CarrinhoController extends Controller
      */
     public function index()
     {
-        $itens = Carrinho::where('user_id', auth()->user()->id)->with('produto')->get();
+        $itens = Carrinho::select('carrinhos.*', 'produtos.nome', 'produtos.preco', 'produtos.categoria', 'produtos.descricao', 'produtos.id as produto_id', 'estoques.tamanho')
+            ->where('user_id', auth()->user()->id)
+            ->with('produto')
+            ->join('estoques', 'estoques.id', '=', 'carrinhos.estoque_id')
+            ->join('produtos', 'produtos.id', '=', 'estoques.produto_id')
+            ->get();
+        
         
         foreach ($itens as $item) {
             $item->total = $item->produto->preco * $item->quantidade;
@@ -48,9 +55,15 @@ class CarrinhoController extends Controller
         // Obtenha o usuário autenticado
         $user = Auth::user();
 
+        $tamanho = $request->input('btnradio'); 
+        $estoque_id = Estoque::where('produto_id', $request->produto_id)
+            ->where('tamanho', $tamanho)
+            ->first()
+            ->id;
+
         // Verifique se já existe um item para o produto no carrinho do usuário
         $itemExistente = Carrinho::where('user_id', $user->id)
-            ->where('produto_id', $request->produto_id)
+            ->where('estoque_id', $estoque_id)
             ->first();
 
         // Se o item já existe, atualize a quantidade
@@ -60,7 +73,7 @@ class CarrinhoController extends Controller
             // Se não existir, crie um novo item no carrinho
             Carrinho::create([
                 'user_id' => $user->id,
-                'produto_id' => $request->produto_id,
+                'estoque_id' => $estoque_id,
                 'quantidade' => $request->quantidade,
             ]);
         }

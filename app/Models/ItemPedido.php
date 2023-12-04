@@ -10,7 +10,7 @@ class ItemPedido extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ['quantidade', 'pedido_id', 'produto_id'];
+    protected $fillable = ['quantidade', 'pedido_id', 'estoque_id'];
 
     public function pedido()
     {

@@ -127,6 +127,19 @@ class ProdutoController extends Controller
         return to_route('dashboard.produtos');
     }
 
+    public function estoque(Request $request){
+        $produto = $request->produto_id;
+        foreach(['PP', 'P', 'M', 'G', 'GG'] as $tamanho){
+            $estoque = Estoque::where('produto_id', $produto)->where('tamanho', $tamanho)->first();
+            $estoque->quantidade = $request->$tamanho;
+            $estoque->save();
+        }
+
+
+        return to_route('dashboard.produtos');
+    }
+
+
     public function camisetas()
     {
         $produtos = Produto::all()->where('categoria', 'camisetas');

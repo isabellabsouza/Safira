@@ -14,11 +14,33 @@ class HomeController extends Controller
         //$produtos = Produto::all()->where('ativo', 1)->with('imagemProduto')->get();
         $produtos = Produto::with('imagemProduto')->get();
         $produtos_mais_pedidos = Produto::select('produtos.*', DB::raw('COUNT(produtos.id) AS qtd'))
-            ->join('item_pedidos', 'produtos.id', '=', 'item_pedidos.produto_id')
+            ->join('estoques', 'estoques.produto_id', '=', 'produtos.id')
+            ->join('item_pedidos', 'estoques.id', '=', 'item_pedidos.estoque_id')
             ->groupBy('produto_id')
             ->orderBy('qtd', 'DESC')
             ->limit(8)
             ->get();
+        /*
+            query equivalente em sql:
+            SELECT produtos.*, COUNT(produtos.id) AS qtd
+            FROM produtos
+            INNER JOIN estoques ON estoques.produto_id = produtos.id
+            INNER JOIN item_pedidos ON estoques.id = item_pedidos.estoque_id
+            GROUP BY produto_id
+            ORDER BY qtd DESC
+            LIMIT 8
+            
+        */
+        
+        
+        /*
+        $produtos_mais_pedidos = Produto::select('produtos.*', DB::raw('COUNT(produtos.id) AS qtd'))
+            ->join('estoques', 'estoques.produto_id', '=', 'produtos.id')
+            ->join('item_pedidos', 'estoques.id', '=', 'item_pedidos.estoque_id')
+            ->groupBy('produto_id')
+            ->orderBy('qtd', 'DESC')
+            ->limit(8)
+            ->get();*/
         return view('index')->with('produtos', $produtos_mais_pedidos);
     }    
 }
