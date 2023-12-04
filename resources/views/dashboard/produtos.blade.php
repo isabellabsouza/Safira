@@ -97,12 +97,13 @@
                                                             >&plus;</button>
                                                     </div>
                                                 </td>
-                                            </form>
                                             @endforeach
                                         </tr>
                                     </tbody>
                                 </table>
                                 <button class="btn btn-primary">Atualizar Estoque</button>
+                            </form>
+
                             </div>
                         </div>
                     </td>
