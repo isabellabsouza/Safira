@@ -24,7 +24,9 @@ class ProdutoController extends Controller
 
     public function create()
     {
-        return view('produtos-create');
+        $categorias = Produto::select('categoria')->distinct()->get();
+        return view('produtos-create')
+            ->with('categorias', $categorias);
     }
 
     /**

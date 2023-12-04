@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,3 +89,4 @@ Route::get('/categorias/shorts', [ProdutoController::class, 'shorts'])->name('ca
 Route::get('/categorias/acessorios', [ProdutoController::class, 'acessorios'])->name('categorias.acessorios');
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/produtos/novidades', [ProdutoController::class, 'novidades'])->name('produtos.novidades');
+Route::post('/search', [SearchController::class, 'index'])->name('search.index');
