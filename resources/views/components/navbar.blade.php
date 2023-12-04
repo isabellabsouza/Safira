@@ -61,7 +61,7 @@
                 <li class="nav-item">
                     <a class="nav-link active position-relative" href="{{ route('carrinho.index') }}">
                         <i class="bi bi-bag-fill fs-4"></i>
-                        @if(\App\Models\Carrinho::where('user_id', Auth::user()->id)->count() > 0 && Auth::check())
+                        @if(Auth::check() && \App\Models\Carrinho::where('user_id', Auth::user()->id)->count() > 0)
                         <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
                             {{\App\Models\Carrinho::where('user_id', Auth::user()->id)->count()}}    
                             
