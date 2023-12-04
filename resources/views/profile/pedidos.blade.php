@@ -14,7 +14,7 @@
                 @foreach ($pedidos as $pedido)
                 <tr>
                     <td>{{ $pedido->id }}</td>
-                    <td>{{ $pedido->valor_total }}</td>
+                    <td>R$ {{ number_format($pedido->valor_total, 2, ",", ".") }}</td>
                     <td>{{ $pedido->status }}</td>
                     <td>{{ $pedido->created_at }}</td>
                     <td><a href="{{ route('pedido.show', $pedido->id) }}">Ver detalhes</a></td>

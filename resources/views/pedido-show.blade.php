@@ -58,9 +58,13 @@
                         @endphp
                     </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="4" class="text-end">Frete:</td>
+                        <td class="text-center fw-bold">R$ 25,00</td>
+                    </tr>
                     <tr class="table-secondary">
                         <td colspan="4" class="text-end">Total:</td>
-                        <td class="text-center fw-bold">R$ {{number_format($total, 2, ",", ".")}}</td>
+                        <td class="text-center fw-bold">R$ {{number_format($total+25, 2, ",", ".")}}</td>
                     </tr>
                 </tbody>
             </table>
