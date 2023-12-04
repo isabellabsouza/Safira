@@ -1,6 +1,6 @@
 <x-dashboard-padrao>
-    <a class="btn btn-primary float-end mt-3" href="{{ route('produto.create') }}">Novo Produto</a>
-    <table class="table">
+    <a class="btn btn-primary mt-3" href="{{ route('produto.create') }}">Novo Produto</a>
+    <table class="table mt-3">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -22,7 +22,7 @@
                             {{ $produto->nome }}
                         </a>
                     </td>
-                    <td>{{ $produto->preco }}</td>
+                    <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
                     <td>{{ $produto->descricao }}</td>
                     <td class="text-capitalize">{{ $produto->categoria }}</td>
                     <td>{{ strtoupper($produto->status) }}</td>
