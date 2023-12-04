@@ -88,17 +88,25 @@ class ProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produto $produto)
+    public function edit(string $id)
     {
-        //
+        $produto = Produto::find($id);
+        //TODO: fazer a edição de produtos
+        $categorias = Produto::select('categoria')->distinct()->get();
+        return view('produtos-edit')
+            ->with('categorias', $categorias)
+            ->with('produto', $produto);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request)
     {
-        //
+        $produto = Produto::find($request->id);
+        $produto->fill($request->all());
+        $produto->update($request->all());
+        return to_route('dashboard.produtos');
     }
 
     /**

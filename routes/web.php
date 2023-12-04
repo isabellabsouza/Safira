@@ -71,6 +71,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/produto', [ProdutoController::class, 'create'])->name('produto.create');
     Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store');
     Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
+    Route::put('/produto/{id}/edit', [ProdutoController::class, 'update'])->name('produto.update');
     Route::patch('/produto/{id}', [ProdutoController::class, 'update'])->name('produto.update');
     Route::delete('/produto/{id}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
     Route::put('/produto/{id}/status', [ProdutoController::class, 'status'])->name('produto.status');
