@@ -1,6 +1,6 @@
 <x-padrao title="Checkout">
     <x-nav-padrao />
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col">
                 <h2 class="mt-3">Checkout</h2>
@@ -57,7 +57,7 @@
                             <div class="col col-auto">
                                 <input type="radio" name="enderecoRadio" id="enderecoRadio" value="{{$endereco->id}}">
                             </div>
-                            <div class="col col-11">
+                            <div class="col col-11" onclick="this.parentElement.querySelector('input').click();" style="cursor: pointer;">
                                 <div class="row">
                                     <div class="col col-auto">
                                         <i class="bi bi-geo-alt-fill"></i>
