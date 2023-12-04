@@ -56,6 +56,7 @@
                                             </div>
                                             <div class="row text-start">
                                                 <div class="col px-3">
+                                                    Tamanho {{ $item->tamanho }}<br>
                                                     {{ $item->produto->descricao }}
                                                 </div>
                                             </div>

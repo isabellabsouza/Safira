@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
 use App\Models\DetalhesPedido;
+use App\Models\Estoque;
 use App\Models\ItemPedido;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
@@ -66,6 +67,11 @@ class PedidoController extends Controller
                 'estoque_id' => $item->estoque_id,
                 'quantidade' => $item->quantidade,
             ]);
+            //diminuir quantidade no estoque
+            $estoque = Estoque::where('id', $item->estoque_id)->first();
+            error_log($estoque);
+            $estoque->quantidade = $estoque->quantidade - $item->quantidade;
+            $estoque->save();
         }
 
         Carrinho::where('user_id', auth()->user()->id)->delete();
@@ -77,7 +83,7 @@ class PedidoController extends Controller
     {
         $pedido = Pedido::find($id);
 
-        $itens_pedido = Produto::select('item_pedidos.*','produtos.id', 'produtos.nome', 'produtos.preco', 'produtos.descricao', 'imagem_produtos.caminho')
+        $itens_pedido = Produto::select('item_pedidos.*','produtos.id', 'produtos.nome', 'produtos.preco', 'produtos.descricao', 'imagem_produtos.caminho', 'estoques.tamanho')
             ->where('item_pedidos.pedido_id', '=', $id)
             ->join('estoques', 'produtos.id', '=', 'estoques.produto_id')
             ->join('item_pedidos', 'estoques.id', '=', 'item_pedidos.estoque_id')

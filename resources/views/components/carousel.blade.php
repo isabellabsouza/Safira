@@ -8,27 +8,27 @@
       <div class="carousel-item active">
         <img src="assets/Mobile/banner1-mobile.png" class="img-fluid d-md-none" alt="...">
         <img src="assets/Tablet/banner1-tablet.png" class="img-fluid d-none d-md-block d-xl-none" alt="...">
-        <img src="assets/Desktop/banner1-desktop.png" class="img-fluid d-none d-xl-block" alt="...">
+        <img src="assets/Desktop/banner1-desktop.png" class="img-fluid d-none d-xl-block" style="object-fit: fill;" alt="...">
         
       </div>
 
       <div class="carousel-item">
         <img src="assets/Mobile/banner2-mobile.png" class="img-fluid d-md-none" alt="...">
         <img src="assets/Tablet/banner2-tablet.png" class="img-fluid d-none d-md-block d-xl-none" alt="...">
-        <img src="assets/Desktop/banner2-desktop.png" class="img-fluid d-none d-xl-block" alt="...">
+        <img src="assets/Desktop/banner2-desktop.png" class="img-fluid d-none d-xl-block" style="object-fit: fill;" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Verão 2024</h5>
+          <p>Conheça a nova coleção com peças exclusivas</p>
         </div>
       </div>
 
       <div class="carousel-item">
         <img src="assets/Mobile/banner3-mobile.png" class="img-fluid d-md-none" alt="...">
         <img src="assets/Tablet/banner3-tablet.png" class="img-fluid d-none d-md-block d-xl-none" alt="...">
-        <img src="assets/Desktop/banner3-desktop.png" class="img-fluid d-none d-xl-block" alt="...">
+        <img src="assets/Desktop/banner3-desktop.png" class="img-fluid d-none d-xl-block" style="object-fit: fill;" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h5>Moda Sustentável</h5>
+          <p>Compre sem prejudicar o meio ambiente, conheça nossa linha de produtos sustentáveis</p>
         </div>
       </div>
     </div>

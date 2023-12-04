@@ -42,7 +42,7 @@
                         <td>
                             <div>   
                                 <div class="row">
-                                    {{$item->nome}}
+                                    {{$item->nome}} - Tamanho {{$item->tamanho}}
                                 </div>
                                 <div class="row">
                                     {{substr($item->descricao, 0, 100)}}
