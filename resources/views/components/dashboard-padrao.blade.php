@@ -43,8 +43,17 @@
                             <i class="bi bi-person-circle fs-4"></i>&nbsp;&nbsp;&nbsp;
                             <strong>{{ Auth::user()->name}}</strong>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow rounded-0" aria-labelledby="dropdownUser1">
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item text-bg-dark" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>
