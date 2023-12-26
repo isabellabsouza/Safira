@@ -34,7 +34,7 @@ class EnderecoController extends Controller
     public function store(EnderecoRequest $request)
     {
         $this->repository->create($request);
-        return to_route('home');   
+        return to_route('carrinho.checkout');   
     }
 
     /**
